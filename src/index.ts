@@ -65,12 +65,12 @@ export function pGet(pattern: string, sort?: boolean): Accessor<KeyValuePairs> {
   return kvps;
 }
 
-export type MappedAccessor<T> = {
-  accessor: Accessor<Map<string, Accessor<T>>>;
-  getMapped: (key: string) => () => T | undefined;
+export type MappedAccessor = {
+  accessor: Accessor<Map<string, Accessor<Value>>>;
+  getMapped: <T>(key: string) => () => T | undefined;
 };
 
-export function pSubscribeMapped<T>(pattern: string): MappedAccessor<T> {
+export function pSubscribeMapped<T>(pattern: string): MappedAccessor {
   const [map, setMap] = createSignal(new Map());
   const setterMap = new Map();
 
