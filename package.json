@@ -1,6 +1,6 @@
 {
   "name": "worterbuch-solid",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "A high level Wörterbuch web client for SolidJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

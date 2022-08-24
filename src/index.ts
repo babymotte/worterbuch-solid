@@ -22,7 +22,7 @@ export const separator = sep;
 export const wildcard = wc;
 export const multiWildcard = mwc;
 
-export function topic(segments: string[]) {
+export function topic(...segments: string[]) {
   return segments.join(separator());
 }
 
@@ -65,7 +65,7 @@ export function pGet(pattern: string, sort?: boolean): Accessor<KeyValuePairs> {
   return kvps;
 }
 
-export function pGetMapped(
+export function pSubscribeMapped(
   pattern: string
 ): Accessor<Map<string, Accessor<string>>> {
   const [map, setMap] = createSignal(new Map());
