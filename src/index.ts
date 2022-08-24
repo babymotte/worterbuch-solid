@@ -108,12 +108,12 @@ export function pSubscribeMapped<T>(pattern: string): MappedAccessor {
 
   return {
     accessor: map,
-    getMapped: (key: string) => {
-      const getter = map().get(key);
-      return () => {
-        if (getter) return getter();
-      };
-    },
+    getMapped:
+      <T>(key: string) =>
+      () => {
+        const getter = map().get(key);
+        if (getter) return <T>getter();
+      },
   };
 }
 
